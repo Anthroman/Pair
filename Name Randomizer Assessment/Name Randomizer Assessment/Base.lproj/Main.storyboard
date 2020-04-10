@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EQL-01-a23">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pair Randomizer-->
+        <scene sceneID="ms5-mz-LeI">
+            <objects>
+                <tableViewController id="Kfw-Fb-Kag" customClass="NameListTableViewController" customModule="Name_Randomizer_Assessment" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="myL-Yd-3YT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="kkW-kM-bN8">
+                            <rect key="frame" x="0.0" y="99.5" width="414" height="63"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="od0-wT-W6n">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    <state key="normal" title="Randomize">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="randomizeButtonTapped:" destination="Kfw-Fb-Kag" eventType="touchUpInside" id="G85-ps-9d8"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="od0-wT-W6n" secondAttribute="bottom" id="7uK-VR-z6N"/>
+                                <constraint firstItem="od0-wT-W6n" firstAttribute="leading" secondItem="kkW-kM-bN8" secondAttribute="leading" id="Fll-De-S4a"/>
+                                <constraint firstItem="od0-wT-W6n" firstAttribute="top" secondItem="kkW-kM-bN8" secondAttribute="top" id="Q2N-d7-Ine"/>
+                                <constraint firstAttribute="trailing" secondItem="od0-wT-W6n" secondAttribute="trailing" id="Y89-tK-Y3m"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="nameCell" id="CCV-UH-we6">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CCV-UH-we6" id="kMs-tY-Pxl">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Kfw-Fb-Kag" id="bwI-G6-PQe"/>
+                            <outlet property="delegate" destination="Kfw-Fb-Kag" id="BmR-vq-Flc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Pair Randomizer" id="3mY-22-bbU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="V3L-39-d3t">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="Kfw-Fb-Kag" id="HAX-yS-oF3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4LI-6B-HHo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86.956521739130437" y="104.46428571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="C40-be-Ea7">
+            <objects>
+                <navigationController id="EQL-01-a23" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xhi-gV-JqM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Kfw-Fb-Kag" kind="relationship" relationship="rootViewController" id="iOC-nP-SMP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PFk-Oz-Cv8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-831" y="105"/>
+        </scene>
+    </scenes>
+</document>
