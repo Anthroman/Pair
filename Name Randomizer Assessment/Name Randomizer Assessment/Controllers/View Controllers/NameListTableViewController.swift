@@ -9,7 +9,7 @@
 import UIKit
 
 class NameListTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -72,7 +72,7 @@ class NameListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nameCell", for: indexPath)
         
         let name = NameViewController.sharedInstance.names[nameIndex(indexPath: indexPath)]
-
+        
         cell.textLabel?.text = name
         return cell
     }
