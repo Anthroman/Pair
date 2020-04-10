@@ -13,7 +13,7 @@
 		6D8A3E742440CBFC00EE2BCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8A3E732440CBFC00EE2BCC /* Assets.xcassets */; };
 		6D8A3E772440CBFC00EE2BCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D8A3E752440CBFC00EE2BCC /* LaunchScreen.storyboard */; };
 		6D8A3E822440CC6F00EE2BCC /* NameListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8A3E812440CC6F00EE2BCC /* NameListTableViewController.swift */; };
-		6D8A3E842440CC8800EE2BCC /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8A3E832440CC8800EE2BCC /* NameViewController.swift */; };
+		6D8A3E842440CC8800EE2BCC /* NameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8A3E832440CC8800EE2BCC /* NameController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		6D8A3E762440CBFC00EE2BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D8A3E782440CBFC00EE2BCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D8A3E812440CC6F00EE2BCC /* NameListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameListTableViewController.swift; sourceTree = "<group>"; };
-		6D8A3E832440CC8800EE2BCC /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
+		6D8A3E832440CC8800EE2BCC /* NameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D77CFCF244104C500E596BC /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6D8A3E832440CC8800EE2BCC /* NameController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
 		6D8A3E5E2440CBFB00EE2BCC = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +88,7 @@
 		6D8A3E7F2440CC4300EE2BCC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6D77CFCF244104C500E596BC /* Model Controllers */,
 				6D8A3E802440CC4E00EE2BCC /* View Controllers */,
 			);
 			path = Controllers;
@@ -89,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				6D8A3E812440CC6F00EE2BCC /* NameListTableViewController.swift */,
-				6D8A3E832440CC8800EE2BCC /* NameViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -168,7 +176,7 @@
 				6D8A3E822440CC6F00EE2BCC /* NameListTableViewController.swift in Sources */,
 				6D8A3E6B2440CBFB00EE2BCC /* AppDelegate.swift in Sources */,
 				6D8A3E6D2440CBFB00EE2BCC /* SceneDelegate.swift in Sources */,
-				6D8A3E842440CC8800EE2BCC /* NameViewController.swift in Sources */,
+				6D8A3E842440CC8800EE2BCC /* NameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

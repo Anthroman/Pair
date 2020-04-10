@@ -1,5 +1,5 @@
 //
-//  NameViewController.swift
+//  NameController.swift
 //  Name Randomizer Assessment
 //
 //  Created by Anthroman on 4/10/20.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-class NameViewController {
+class NameController {
     
     //MARK: - Singleton and Source of Truth
-    static var sharedInstance = NameViewController()
+    static var sharedInstance = NameController()
     var names: [String] = []
     
     //MARK: - Initializer
