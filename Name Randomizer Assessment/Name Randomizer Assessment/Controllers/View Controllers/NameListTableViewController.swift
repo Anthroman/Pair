@@ -10,6 +10,9 @@ import UIKit
 
 class NameListTableViewController: UITableViewController {
     
+    //MARK: - Properties
+    let nameCount = NameController.sharedInstance.names.count
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -56,12 +59,12 @@ class NameListTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return NameController.sharedInstance.names.count % 2 == 0 ? NameController.sharedInstance.names.count / 2 : (NameController.sharedInstance.names.count / 2) + 1
+        return nameCount % 2 == 0 ? nameCount / 2 : (nameCount / 2) + 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if NameController.sharedInstance.names.count % 2 == 0 {
+        if nameCount % 2 == 0 {
             return 2
         } else {
             // the last section should have only one row, all other sections should have 2
