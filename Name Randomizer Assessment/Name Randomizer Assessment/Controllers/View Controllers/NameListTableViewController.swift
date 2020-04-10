@@ -12,7 +12,6 @@ class NameListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     //MARK: - Actions
@@ -44,7 +43,13 @@ class NameListTableViewController: UITableViewController {
     }
     
     @IBAction func randomizeButtonTapped(_ sender: UIButton) {
-        
+        NameViewController.sharedInstance.shuffleNames()
+        tableView.reloadData()
+    }
+    
+    func nameIndex(indexPath: IndexPath) -> Int {
+        // returns an integer based on number of sections (starting at index 0) and how many rows are in the final section (which is either 1 or 2)
+        return (indexPath.section * 2) + (indexPath.row)
     }
     
     // MARK: - Table view data source
@@ -66,18 +71,23 @@ class NameListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nameCell", for: indexPath)
         
-        let name = NameViewController.sharedInstance.names[indexPath.row]
-        // Configure the cell...
+        let name = NameViewController.sharedInstance.names[nameIndex(indexPath: indexPath)]
+
         cell.textLabel?.text = name
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Group \(section + 1)"
     }
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let name = NameViewController.sharedInstance.names[indexPath.row]
+            let name = NameViewController.sharedInstance.names[nameIndex(indexPath: indexPath)]
+            
             NameViewController.sharedInstance.deleteName(name: name)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
         }
     }
 }

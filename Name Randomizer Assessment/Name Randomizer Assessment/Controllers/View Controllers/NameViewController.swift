@@ -33,6 +33,12 @@ class NameViewController {
         saveToPersistentStorage(names: names)
     }
     
+    func shuffleNames() {
+        var shuffledNames: [String] = []
+        shuffledNames = names.shuffled()
+        names = shuffledNames
+    }
+    
     //MARK: - Persistence
     func fileURL() -> URL {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
