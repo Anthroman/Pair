@@ -42,7 +42,7 @@ class NameController {
     //MARK: - Persistence
     func fileURL() -> URL {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let fileName = "Ranomizer.json"
+        let fileName = "Randomizer.json"
         let documentDirectory = urls[0]
         let documentsDirectoryURL = documentDirectory.appendingPathComponent(fileName)
         return documentsDirectoryURL
