@@ -29,7 +29,7 @@ class NameListTableViewController: UITableViewController {
         // Create an add button
         let addButton = UIAlertAction(title: "Add", style: .default) { (_) in
             guard let name = alert.textFields?[0].text, name != "" else {return}
-            NameViewController.sharedInstance.createName(name: name)
+            NameController.sharedInstance.createName(name: name)
             // reload data
             self.tableView.reloadData()
         }
@@ -43,24 +43,25 @@ class NameListTableViewController: UITableViewController {
     }
     
     @IBAction func randomizeButtonTapped(_ sender: UIButton) {
-        NameViewController.sharedInstance.shuffleNames()
+        NameController.sharedInstance.shuffleNames()
         tableView.reloadData()
     }
     
     func nameIndex(indexPath: IndexPath) -> Int {
-        // returns an integer based on number of sections (starting at index 0) and how many rows are in the final section (which is either 1 or 2)
+        // returns an integer based on index of section (starting at index 0) and the index of the final row (which is either 0 or 1), thereby accounting for every row in every section
+        // we will use this as the subscript index of the names array in order to grab the name at that index
         return (indexPath.section * 2) + (indexPath.row)
     }
     
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return NameViewController.sharedInstance.names.count % 2 == 0 ? NameViewController.sharedInstance.names.count / 2 : (NameViewController.sharedInstance.names.count / 2) + 1
+        return NameController.sharedInstance.names.count % 2 == 0 ? NameController.sharedInstance.names.count / 2 : (NameController.sharedInstance.names.count / 2) + 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if NameViewController.sharedInstance.names.count % 2 == 0 {
+        if NameController.sharedInstance.names.count % 2 == 0 {
             return 2
         } else {
             // the last section should have only one row, all other sections should have 2
@@ -71,7 +72,7 @@ class NameListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nameCell", for: indexPath)
         
-        let name = NameViewController.sharedInstance.names[nameIndex(indexPath: indexPath)]
+        let name = NameController.sharedInstance.names[nameIndex(indexPath: indexPath)]
         
         cell.textLabel?.text = name
         return cell
@@ -84,9 +85,9 @@ class NameListTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let name = NameViewController.sharedInstance.names[nameIndex(indexPath: indexPath)]
+            let name = NameController.sharedInstance.names[nameIndex(indexPath: indexPath)]
             
-            NameViewController.sharedInstance.deleteName(name: name)
+            NameController.sharedInstance.deleteName(name: name)
             tableView.reloadData()
         }
     }
